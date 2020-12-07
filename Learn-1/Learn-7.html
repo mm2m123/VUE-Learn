@@ -12,20 +12,27 @@
 
 <body>
 	<div id="hello-vue" class="m-3 p-3 border border-success">
-		<!--			{{ message }}-->
-		<div v-bind:title="message">
-			
-		</div>
+		{{ a }}
 	</div>
 	<script>
-		const HelloVueApp = {
-			data() {
-				return {
-					message: 'Hello Ccc'
-				}
-			}
+		const myData = {
+			a: 10
 		}
-		Vue.createApp(HelloVueApp).mount('#hello-vue')
+		const vm = Vue.createApp({
+			data() {
+				return myData
+			}
+		}).mount('#hello-vue')
+
+		console.log(vm.a)
+		console.log(vm.$data)
+		console.log(myData)
+
+		vm.a = 1000
+		console.log("")
+		console.log(vm.a)
+		console.log(vm.$data)
+		console.log(myData)
 	</script>
 </body>
 

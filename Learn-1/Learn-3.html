@@ -12,10 +12,8 @@
 
 <body>
 	<div id="hello-vue" class="m-3 p-3 border border-success">
-		<!--			{{ message }}-->
-		<div v-bind:title="message">
-			
-		</div>
+		<p>{{ message }}</p>
+		<input class="form-control" v-model="message">
 	</div>
 	<script>
 		const HelloVueApp = {

@@ -12,18 +12,32 @@
 
 <body>
 	<div id="hello-vue" class="m-3 p-3 border border-success">
-		<!--			{{ message }}-->
-		<div v-bind:title="message">
-			
-		</div>
+		<button class="btn btn-success" v-on:click="this.seen = !this.seen">Kkk</button>
+		<hr>
+		<ol>
+			<li v-for="todo in todos" v-if="seen">
+				{{ todo.text }}
+			</li>
+		</ol>
 	</div>
 	<script>
 		const HelloVueApp = {
 			data() {
 				return {
-					message: 'Hello Ccc'
+					message: 'Hello Ccc',
+					seen: false,
+					todos: [{
+							text: "a"
+						},
+						{
+							text: "b"
+						},
+						{
+							text: "c"
+						}
+					]
 				}
-			}
+			},
 		}
 		Vue.createApp(HelloVueApp).mount('#hello-vue')
 	</script>
