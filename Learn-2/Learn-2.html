@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3.0</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="hello-vue" class="m-3 p-3 border border-success">
+        <h3>属性绑定</h3>
+        <!-- 完整写法：v-bind:href -->
+        <a v-bind:href="c" class="link" target="_blank">c</a><br />
+        <!-- 省略写法：:href -->
+        <a :href="c" class="link" target="_blank">c</a><br />
+        <h3>事件绑定</h3>
+        <!-- 完整写法：v-on:click -->
+        <button v-on:click="buyPS5(1)" class="btn btn-success">买PS5</button>
+        <!-- 省略写法：@click -->
+        <button @click="buyPS5(0)" class="btn btn-danger">不买PS5</button>
+    </div>
+    <script>
+        const HelloVueApp = {
+            data() {
+                return {
+                    c: 'https://www.google.com'
+                }
+            },
+            methods: {
+                buyPS5(val) {
+                    val == 1 ? alert("111") : alert("222")
+                }
+            },
+        }
+        Vue.createApp(HelloVueApp).mount('#hello-vue')
+    </script>
+</body>
+
+</html>
