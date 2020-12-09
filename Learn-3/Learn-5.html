@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3.0</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="hello-vue" class="m-3 p-3 border border-success">
+        <h2>点击次数：{{count}}</h2>
+        <button class="btn btn-success m-2" @click="btnClick1()">点它1</button>
+        <button class="btn btn-info m-2" @click="btnClick2($event)">点它2</button>
+        <hr>
+        <h2>表单演示(阻止提交)</h2>
+        <form>
+            <label for="new-todo">添加预定：</label>
+            <input v-model="newTodoText" id="new-todo" placeholder="例:" />
+            <button @click="btnClick3($event)">添加</button>
+            <ul>
+                <li v-for="todo in todos">{{todo}}</li>
+            </ul>
+        </form>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            /* options */
+            data() {
+                return {
+                    count: 0,
+                    newTodoText: '',
+                    todos: []
+                }
+            },
+            methods: {
+                btnClick1() {
+                    this.count++;
+                },
+                btnClick2(event) {
+                    this.count++;
+                    console.log(event)
+                    console.log(event.target)
+                    console.log(event.target.attributes.class)
+                    console.log(event.target.innerText)
+                },
+                btnClick3(event) {
+                    // if (event) {
+                    //     // 阻止事件发生
+                    //     event.preventDefault()
+                    // }
+                    this.todos.push(this.newTodoText)
+                    this.newTodoText = ""
+                }
+            }
+        })
+        app.mount('#hello-vue')
+    </script>
+</body>
+
+</html>
