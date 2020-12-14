@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 3.0</title>
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+	<div id="app" class="appClass">
+		{{ message }} {{ name }}
+	</div>
+
+	<script type="text/javascript">
+		const App = {
+			data() {
+				return {
+					message: 'Hello~',
+					name: 'ccc'
+				}
+			},
+		}
+		Vue.createApp(App).mount(".appClass")
+	</script>
+</body>
+
+</html>
